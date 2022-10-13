@@ -1,4 +1,8 @@
-<!--logs.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">导航栏</view>
+</cu-custom>
+
 <view class="container log-list h-4">
   <block wx:for="{{logs}}" wx:key="timeStamp" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log.date}}</text>
