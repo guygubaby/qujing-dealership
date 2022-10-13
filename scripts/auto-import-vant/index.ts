@@ -65,6 +65,11 @@ const writeJson = async (id: string, components: string[]) => {
   const jsonObj = JSON.parse(json)
   const { usingComponents = {} } = jsonObj
 
+  Object.keys(usingComponents).forEach((key) => {
+    if (key.startsWith('van-'))
+      delete usingComponents[key]
+  })
+
   components.forEach((component) => {
     usingComponents[component] = getComponentPath(component)
   })
