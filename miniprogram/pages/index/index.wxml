@@ -1,0 +1,37 @@
+<view class="mt-4 px">
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="w-20 h-20 rounded-full" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+
+  <view class="text-xl py">
+    TypeScript Vant UnoCss starter
+  </view>
+
+  <view class="h-20 flex items-center justify-center bg-purple-500 rounded-full text-white">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <van-card title='van card'>
+    card content
+  </van-card>
+
+  <van-button size='small' block class="mb" bindtap="bindViewTap">foobar</van-button>
+
+  <van-circle value='{{30}}' text='text'></van-circle>
+
+  <van-slider value="50" bind:change="onChange" />
+</view>
