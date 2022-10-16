@@ -150,7 +150,7 @@ Page({
 
   },
 
-  goToLogs() {
+  handleClickItem() {
     wx.navigateTo({
       url: '../logs/logs',
     })

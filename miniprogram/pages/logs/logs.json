@@ -3,5 +3,6 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-circle": "@vant/weapp/circle/index"
-  }
+  },
+  "navigationStyle": "custom"
 }

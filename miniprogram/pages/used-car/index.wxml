@@ -38,7 +38,7 @@
 </van-divider>
 
 <view class="flex flex-row gap-2 pl-2 flex-wrap w-full">
-  <figure class="rounded-lg bg-white overflow-hidden flex flex-col" style="width: 48%;" wx:for="{{timeLimitedCarList}}" wx:key='id'>
+  <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col w-48-p-" wx:for="{{timeLimitedCarList}}" wx:key='id'>
     <image src="{{item.url}}" mode="aspectFill"></image>
     <figurecaption class="p-2 flex flex-col">
       <text class="text-slate-800 text-lg">{{item.title}}</text>
@@ -47,7 +47,7 @@
         <text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
       </view>
     </figurecaption>
-  </figure>
+  </view>
 </view>
 
 <view class="i-carbon-sun text-2xl"></view>
