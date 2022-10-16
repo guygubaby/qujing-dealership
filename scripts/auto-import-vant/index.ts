@@ -106,13 +106,13 @@ const processWxml = async (file: string) => {
   const components = getVantComponentsFromRawHtml(raw, file)
 
   if (isArrayEqual(oldComponents, components))
-    return console.log(yellow('no new vant components detect, skip patch'))
+    return
 
   componentMap[file] = components
   await writeJson(file, components)
 
   console.log(
-    green('done in'),
+    green('in'),
     yellow(`${Date.now() - start}ms`),
   )
 }

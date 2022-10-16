@@ -4,9 +4,9 @@ Page({
   onLoad() {
     console.log('foo')
   },
-  gotologpage(){
+  gotologpage() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/logs',
     })
-  }
+  },
 })

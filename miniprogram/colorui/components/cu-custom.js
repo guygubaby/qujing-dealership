@@ -16,11 +16,11 @@ Component({
       default: '',
     },
     isCustom: {
-      type: [Boolean, String],
+      type: Boolean,
       default: false,
     },
     isBack: {
-      type: [Boolean, String],
+      type: Boolean,
       default: false,
     },
     bgImage: {
@@ -47,7 +47,7 @@ Component({
     },
     toHome() {
       wx.reLaunch({
-        url: '/pages/index/index',
+        url: '/pages/used-car/index',
       })
     },
   },

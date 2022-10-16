@@ -1,34 +1,39 @@
-import type { Preflight } from 'unocss'
-import { defineConfig, entriesToCss, presetUno } from 'unocss'
-// import presetWeapp from 'unocss-preset-weapp'
+import { defineConfig, presetIcons } from 'unocss'
+import { presetWeapp } from 'unocss-preset-weapp'
+import { transformerClass } from 'unocss-preset-weapp/transformer'
 
-const preflights: Preflight<any>[] = [
+const include = [/\.wxml$/]
+
+export default defineConfig(
   {
-    layer: 'preflights',
-    getCSS(ctx) {
-      if (ctx.theme.preflightBase) {
-        const css = entriesToCss(Object.entries(ctx.theme.preflightBase))
-        return `page,::before,::after{${css}}::backdrop{${css}}`
-      }
-      return undefined
-    },
-  },
-]
+    include,
+    presets: [
+      presetWeapp({
+        dark: 'class',
+      }),
 
-export default defineConfig({
-  postprocess(util) {
-    const { selector } = util
-    if (selector === '.container') {
-      util.parent = undefined
-      util.entries = []
-    }
+      presetIcons({
+        prefix: 'i-',
+      }),
+    ],
+
+    transformers: [
+      transformerClass({
+        include,
+        transformRules: {
+          '.': '.',
+          '/': '-s-',
+          ':': '-c-',
+          '%': '-p-',
+          '!': '-e-',
+          '#': '-w-',
+          '(': '-bl-',
+          ')': '-br-',
+          '[': '-fl-',
+          ']': '-fr-',
+          '$': '-r-',
+        },
+      }),
+    ],
   },
-  envMode: 'dev',
-  shortcuts: [
-    { box: 'max-w-7xl mx-auto bg-gray-100 rounded-md shadow-sm p-4' },
-  ],
-  presets: [
-    { ...presetUno(), preflights },
-    // presetWeapp(),
-  ],
-})
+)

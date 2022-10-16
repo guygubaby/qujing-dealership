@@ -1,0 +1,61 @@
+<cu-custom bgColor='bg-gradual-blue' wx:if="{{1}}">
+  <view slot='content'>
+    <view class="">
+      <text>二手车</text>
+      <!-- <input placeholder="将会获取焦点"/> -->
+    </view>
+  </view>
+</cu-custom>
+
+<swiper 
+  class="screen-swiper round-dot" 
+  indicator-dots="true" 
+  circular="true" 
+  autoplay="true" 
+  interval="5000" 
+  duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key='id'>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+<view class="m-2 rounded-lg overflow-hidden">
+  <view class="cu-list grid col-3 no-border">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<van-divider borderColor="#DFD3C3" contentPosition="center">
+  限时秒杀
+</van-divider>
+
+<view class="flex flex-row gap-2 pl-2 flex-wrap w-full">
+  <figure class="rounded-lg bg-white overflow-hidden flex flex-col" style="width: 48%;" wx:for="{{timeLimitedCarList}}" wx:key='id'>
+    <image src="{{item.url}}" mode="aspectFill"></image>
+    <figurecaption class="p-2 flex flex-col">
+      <text class="text-slate-800 text-lg">{{item.title}}</text>
+      <view>
+        <text class="text-red-600">{{item.price}}</text>
+        <text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
+      </view>
+    </figurecaption>
+  </figure>
+</view>
+
+<view class="i-carbon-sun text-2xl"></view>
+
+<van-divider borderColor="#DFD3C3" contentPosition="center">
+  百亿补贴
+</van-divider>
+
+<van-divider borderColor="#DFD3C3" contentPosition="center">
+  每日上新
+</van-divider>

@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@bryce-loskie/eslint-config': ^2.0.7
   '@bryce-loskie/utils': ^0.1.38
+  '@iconify-json/carbon': ^1.1.8
   '@types/fs-extra': ^9.0.13
   '@types/node': ^18.8.5
   '@unocss/cli': ^0.45.29
@@ -28,8 +29,9 @@ dependencies:
 
 devDependencies:
   '@bryce-loskie/eslint-config': 2.0.7_z4bbprzjrhnsfa24uvmcbu7f5q
+  '@iconify-json/carbon': 1.1.8
   '@types/fs-extra': 9.0.13
-  '@types/node': 18.8.5
+  '@types/node': 18.11.0
   '@unocss/cli': 0.45.29
   chokidar: 3.5.3
   colorette: 2.0.19
@@ -259,6 +261,12 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify-json/carbon/1.1.8:
+    resolution: {integrity: sha512-aSoMgvZyvIXadLbMXcfS+qy8CVxSExvvp8Vd/nCrupLFc0KLKSukRInnVNc63zaHqoe1NBf5xUrgfyRYYfaKWQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
@@ -347,7 +355,7 @@ packages:
   /@types/fs-extra/9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 18.8.5
+      '@types/node': 18.11.0
     dev: true
 
   /@types/json-schema/7.0.11:
@@ -364,8 +372,8 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /@types/node/18.8.5:
-    resolution: {integrity: sha512-Bq7G3AErwe5A/Zki5fdD3O6+0zDChhg671NfPjtIcbtzDNZTv4NPKMRFr7gtYPG7y+B8uTiNK4Ngd9T0FTar6Q==}
+  /@types/node/18.11.0:
+    resolution: {integrity: sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
