@@ -17,6 +17,15 @@ export default defineConfig(
       }),
     ],
 
+    rules: [
+      [/^([w|h])-(.+)$/, (match) => {
+        const [c, p, d] = match
+        const unit = p === 'w' ? 'width' : 'height'
+        const val = isNaN(+d) ? d : `${+d * 8}rpx`
+        return `.${c}{${unit}:${val}}`
+      }],
+    ],
+
     transformers: [
       transformerClass({
         include,
