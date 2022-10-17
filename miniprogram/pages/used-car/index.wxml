@@ -1,10 +1,8 @@
-<cu-custom bgColor='bg-gradual-blue' wx:if="{{1}}">
-  <view slot='content'>
-    <view class="">
-      <text>二手车</text>
-    </view>
-  </view>
-</cu-custom>
+<van-nav-bar fixed border='{{false}}'>
+  <view slot='title'>二手车</view>
+</van-nav-bar>
+
+<nav-placeholder />
 
 <swiper 
   class="screen-swiper round-dot" 
@@ -19,14 +17,9 @@
   </swiper-item>
 </swiper>
 
-<view class="m-2 rounded-lg overflow-hidden">
-  <view class="cu-list grid col-3 no-border">
-    <view class="cu-item" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
-      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
-        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
-        </view>
-      </view>
+<view class="m-2 p-2 rounded-lg overflow-hidden bg-white">
+  <view class="grid grid-col-3">
+    <view class="p-2 text-center" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
       <text>{{item.name}}</text>
     </view>
   </view>
@@ -37,8 +30,8 @@
   <text>限时秒杀</text>
 </van-divider>
 
-<view class="flex flex-row gap-2 pl-2 flex-wrap w-full">
-  <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col w-48-p-" wx:for="{{timeLimitedCarList}}" wx:key='id'>
+<view class="grid grid-col-2 gap-2 px-2">
+  <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id'>
     <image src="{{item.url}}" mode="aspectFill"></image>
     <figurecaption class="p-2 flex flex-col">
       <text class="text-slate-800 text-lg">{{item.title}}</text>
@@ -59,3 +52,5 @@
   <view class="text-xl mr-1 text-purple i-fxemoji-squarednew"></view>
   <text>每日上新</text>
 </van-divider>
+
+<tab-placeholder />

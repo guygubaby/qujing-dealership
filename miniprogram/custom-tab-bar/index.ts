@@ -29,11 +29,14 @@ Component<IData, {}, {}>({
     init() {
       const page = getCurrentPages().pop()
       const route = page ? page.route.split('?')[0] : ''
-      const active = this.data.list.find(
+      const tab = this.data.list.find(
         item =>
           (item.pagePath.startsWith('/') ? item.pagePath.substr(1) : item.pagePath)
           === `${route}`,
-      )?.name
+      )
+      if (!tab)
+        return
+      const active = tab.name
       this.setData({ active })
     },
   },

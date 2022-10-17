@@ -44,6 +44,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "nav-placeholder": "/components/nav-placeholder/index",
+    "tab-placeholder": "/components/tab-placeholder/index"
   }
 }

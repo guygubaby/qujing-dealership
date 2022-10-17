@@ -1,4 +1,4 @@
-import updateManager from "./utils/update-manager"
+import updateManager from './utils/update-manager'
 
 // app.ts
 App<IAppOption>({
@@ -40,7 +40,7 @@ App<IAppOption>({
       },
     })
   },
-  onShow(){
+  onShow() {
     updateManager()
-  }
+  },
 })

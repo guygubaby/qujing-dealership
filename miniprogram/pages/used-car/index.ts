@@ -1,3 +1,4 @@
+// @ts-expect-error ignore this line
 const app = getApp()
 
 Page({
