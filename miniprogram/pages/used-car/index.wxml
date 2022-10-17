@@ -2,6 +2,8 @@
   <view slot='title'>二手车</view>
 </van-nav-bar>
 
+<van-loading class="flex-center bg-white pt-2 pb-4" wx:if="{{isLoading}}" />
+
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key='id'>
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
@@ -24,7 +26,7 @@
 </van-divider>
 
 <view class="grid grid-col-2 gap-2 px-2">
-  <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id'>
+  <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
     <image src="{{item.url}}" mode="aspectFill"></image>
     <figurecaption class="p-2 flex flex-col">
       <text class="text-slate-800 text-md">{{item.title}}</text>

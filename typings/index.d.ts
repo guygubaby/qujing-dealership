@@ -1,7 +1,5 @@
 /// <reference path="./types/index.d.ts" />
 
-type Nullable<T> = T | null
-
 interface IAppOption {
   globalData: {
     userInfo?: WechatMiniprogram.UserInfo,

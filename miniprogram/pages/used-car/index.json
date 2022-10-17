@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-loading": "@vant/weapp/loading/index",
     "van-divider": "@vant/weapp/divider/index"
   },
   "enablePullDownRefresh": true,

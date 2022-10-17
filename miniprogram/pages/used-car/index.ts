@@ -1,16 +1,14 @@
-import { throttle } from '@bryce-loskie/utils'
+import { onPageScroll } from '../../utils/page-scroll'
 
 const app = getApp()
 
 Page({
   data: {
-    active: 0,
     navHeight: app.globalData.navHeight,
-    navTop: app.globalData.navTop,
-
     navOpacity: 0,
 
-    cardCur: 0,
+    isLoading: false,
+
     swiperList: [
       {
         id: 0,
@@ -93,20 +91,6 @@ Page({
     ],
   },
 
-  // cardSwiper
-  cardSwiper(e: any) {
-    this.setData({
-      cardCur: e.detail.current,
-    })
-  },
-
-  onChange(event: any) {
-    wx.showToast({
-      title: `切换到标签 ${event.detail.name}`,
-      icon: 'success',
-    })
-  },
-
   /**
    * Lifecycle function--Called when page load
    */
@@ -138,20 +122,18 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh() {
+    this.setData({
+      isLoading: true,
+    })
     setTimeout(() => {
+      this.setData({
+        isLoading: false,
+      })
       wx.stopPullDownRefresh()
     }, 1 * 1000)
   },
 
-  onPageScroll: throttle(32, function ({ scrollTop }: { scrollTop: number }) {
-    const delta = scrollTop / this.data.navHeight
-    const opacity = Math.min(delta, 1)
-    if (opacity === 1)
-      return
-    this.setData({
-      navOpacity: opacity,
-    })
-  }),
+  onPageScroll,
 
   /**
    * Called when page reach bottom
@@ -163,9 +145,10 @@ Page({
    */
   onShareAppMessage() {},
 
-  handleClickItem() {
+  handleClickItem(e: IDataSet<{ id: number }>) {
+    const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../logs/logs',
+      url: `../car-detail/index?id=${id}`,
     })
   },
 })

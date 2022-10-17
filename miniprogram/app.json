@@ -3,7 +3,8 @@
     "pages/used-car/index",
     "pages/mine/index",
     "pages/rent-car/index",
-    "pages/collection/index"
+    "pages/collection/index",
+    "pages/car-detail/index"
   ],
   "tabBar": {
     "custom": true,
