@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "home",
-  "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
-  }
-}

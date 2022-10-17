@@ -1,3 +1,5 @@
+import updateManager from "./utils/update-manager"
+
 // app.ts
 App<IAppOption>({
   globalData: {
@@ -38,4 +40,7 @@ App<IAppOption>({
       },
     })
   },
+  onShow(){
+    updateManager()
+  }
 })

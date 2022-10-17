@@ -1,3 +1,0 @@
-<view class="pt-14">
-  <van-button bind:tap="gotologpage">go to logs</van-button>
-</view>
