@@ -1,4 +1,4 @@
-import { defineConfig, presetIcons } from 'unocss'
+import { defineConfig, presetIcons, transformerDirectives } from 'unocss'
 import { presetWeapp } from 'unocss-preset-weapp'
 import { transformerClass } from 'unocss-preset-weapp/transformer'
 
@@ -7,6 +7,9 @@ const include = [/\.wxml$/]
 export default defineConfig(
   {
     include,
+    shortcuts: {
+      'flex-center': 'flex justify-center items-center',
+    },
     presets: [
       presetWeapp({
         dark: 'class',
@@ -14,6 +17,8 @@ export default defineConfig(
 
       presetIcons({
         prefix: 'i-',
+        warn: true,
+        autoInstall: false,
       }),
     ],
 
@@ -35,6 +40,8 @@ export default defineConfig(
     ],
 
     transformers: [
+      transformerDirectives(),
+
       transformerClass({
         include,
         transformRules: {

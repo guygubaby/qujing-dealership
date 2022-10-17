@@ -1,16 +1,8 @@
-<van-nav-bar fixed border='{{false}}'>
+<van-nav-bar fixed border='{{false}}' custom-style='opacity: {{navOpacity}};display: {{navOpacity === 0 ? "none" : "block"}}'>
   <view slot='title'>二手车</view>
 </van-nav-bar>
 
-<nav-placeholder />
-
-<swiper 
-  class="screen-swiper round-dot" 
-  indicator-dots="true" 
-  circular="true" 
-  autoplay="true" 
-  interval="5000" 
-  duration="500">
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key='id'>
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
@@ -19,8 +11,9 @@
 
 <view class="m-2 p-2 rounded-lg overflow-hidden bg-white">
   <view class="grid grid-col-3">
-    <view class="p-2 text-center" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
-      <text>{{item.name}}</text>
+    <view class="m-1 p-2 ring flex-center flex-col" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
+      <view class="w-8 h-8 ring mb-1 flex-center">icon</view>
+      <text class="text-zinc-500">{{item.name}}</text>
     </view>
   </view>
 </view>
@@ -34,7 +27,7 @@
   <view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id'>
     <image src="{{item.url}}" mode="aspectFill"></image>
     <figurecaption class="p-2 flex flex-col">
-      <text class="text-slate-800 text-lg">{{item.title}}</text>
+      <text class="text-slate-800 text-md">{{item.title}}</text>
       <view>
         <text class="text-red-600">{{item.price}}</text>
         <text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>

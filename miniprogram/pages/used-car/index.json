@@ -3,6 +3,6 @@
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-divider": "@vant/weapp/divider/index"
   },
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "navigationStyle": "custom"
 }

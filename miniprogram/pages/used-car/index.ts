@@ -2,13 +2,12 @@
 const app = getApp()
 
 Page({
-  /**
-   * Page initial data
-   */
   data: {
     active: 0,
     navHeight: app.globalData.navHeight,
     navTop: app.globalData.navTop,
+
+    navOpacity: 0,
 
     cardCur: 0,
     swiperList: [{
@@ -26,12 +25,12 @@ Page({
     }],
 
     iconList: [{
-      icon: 'cardboardfill',
+      icon: 'i-carbon-sun',
       color: 'red',
       badge: 120,
       name: '精选车源',
     }, {
-      icon: 'recordfill',
+      icon: 'i-carbon-fire',
       color: 'orange',
       badge: 1,
       name: '新人练手',
@@ -135,14 +134,25 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh() {
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1 * 1000)
+  },
 
+  onPageScroll({ scrollTop }: { scrollTop: number }) {
+    const delta = scrollTop / this.data.navHeight
+    const opacity = Math.min(delta, 1)
+    if (opacity === 1)
+      return
+    this.setData({
+      navOpacity: opacity,
+    })
   },
 
   /**
    * Called when page reach bottom
    */
   onReachBottom() {
-
   },
 
   /**
