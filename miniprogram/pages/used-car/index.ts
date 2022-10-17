@@ -113,6 +113,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
+    this.getTabBar().init()
   },
 
   /**

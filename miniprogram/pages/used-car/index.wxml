@@ -2,7 +2,6 @@
   <view slot='content'>
     <view class="">
       <text>二手车</text>
-      <!-- <input placeholder="将会获取焦点"/> -->
     </view>
   </view>
 </cu-custom>
@@ -34,7 +33,8 @@
 </view>
 
 <van-divider borderColor="#DFD3C3" contentPosition="center">
-  限时秒杀
+  <view class="i-carbon-fire text-2xl text-red mr-1"></view>
+  <text>限时秒杀</text>
 </van-divider>
 
 <view class="flex flex-row gap-2 pl-2 flex-wrap w-full">
@@ -50,12 +50,12 @@
   </view>
 </view>
 
-<view class="i-carbon-sun text-2xl"></view>
-
 <van-divider borderColor="#DFD3C3" contentPosition="center">
-  百亿补贴
+  <view class="text-xl mr-1 text-purple i-fxemoji-moneybag"></view>
+  <text>百亿补贴</text>
 </van-divider>
 
 <van-divider borderColor="#DFD3C3" contentPosition="center">
-  每日上新
+  <view class="text-xl mr-1 text-purple i-fxemoji-squarednew"></view>
+  <text>每日上新</text>
 </van-divider>

@@ -8,7 +8,7 @@
     "pages/logs/logs"
   ],
   "tabBar": {
-    "custom": false,
+    "custom": true,
     "selectedColor": "#007FCB",
     "list": [
       {
