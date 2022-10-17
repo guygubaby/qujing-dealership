@@ -1,4 +1,5 @@
-// @ts-expect-error ignore this line
+import { throttle } from '@bryce-loskie/utils'
+
 const app = getApp()
 
 Page({
@@ -10,51 +11,62 @@ Page({
     navOpacity: 0,
 
     cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
-    }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-    }],
+    swiperList: [
+      {
+        id: 0,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
+      },
+      {
+        id: 1,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+      },
+      {
+        id: 2,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      },
+    ],
 
-    iconList: [{
-      icon: 'i-carbon-sun',
-      color: 'red',
-      badge: 120,
-      name: '精选车源',
-    }, {
-      icon: 'i-carbon-fire',
-      color: 'orange',
-      badge: 1,
-      name: '新人练手',
-    }, {
-      icon: 'picfill',
-      color: 'yellow',
-      badge: 0,
-      name: '通勤代步',
-    }, {
-      icon: 'noticefill',
-      color: 'olive',
-      badge: 22,
-      name: '豪华品牌',
-    }, {
-      icon: 'upstagefill',
-      color: 'cyan',
-      badge: 0,
-      name: '0过户',
-    }, {
-      icon: 'clothesfill',
-      color: 'blue',
-      badge: 0,
-      name: '大空间',
-    }],
+    iconList: [
+      {
+        icon: 'i-carbon-sun',
+        color: 'red',
+        badge: 120,
+        name: '精选车源',
+      },
+      {
+        icon: 'i-carbon-fire',
+        color: 'orange',
+        badge: 1,
+        name: '新人练手',
+      },
+      {
+        icon: 'picfill',
+        color: 'yellow',
+        badge: 0,
+        name: '通勤代步',
+      },
+      {
+        icon: 'noticefill',
+        color: 'olive',
+        badge: 22,
+        name: '豪华品牌',
+      },
+      {
+        icon: 'upstagefill',
+        color: 'cyan',
+        badge: 0,
+        name: '0过户',
+      },
+      {
+        icon: 'clothesfill',
+        color: 'blue',
+        badge: 0,
+        name: '大空间',
+      },
+    ],
 
     timeLimitedCarList: [
       {
@@ -98,16 +110,12 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad() {
-
-  },
+  onLoad() {},
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady() {
-
-  },
+  onReady() {},
 
   /**
    * Lifecycle function--Called when page show
@@ -119,16 +127,12 @@ Page({
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide() {
-
-  },
+  onHide() {},
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload() {
-
-  },
+  onUnload() {},
 
   /**
    * Page event handler function--Called when user drop down
@@ -139,7 +143,7 @@ Page({
     }, 1 * 1000)
   },
 
-  onPageScroll({ scrollTop }: { scrollTop: number }) {
+  onPageScroll: throttle(32, function ({ scrollTop }: { scrollTop: number }) {
     const delta = scrollTop / this.data.navHeight
     const opacity = Math.min(delta, 1)
     if (opacity === 1)
@@ -147,20 +151,17 @@ Page({
     this.setData({
       navOpacity: opacity,
     })
-  },
+  }),
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom() {
-  },
+  onReachBottom() {},
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage() {
-
-  },
+  onShareAppMessage() {},
 
   handleClickItem() {
     wx.navigateTo({

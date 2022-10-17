@@ -1,5 +1,7 @@
 const app = getApp()
 
+export {}
+
 // components/nav-placeholder/index.ts
 Component({
   /**

@@ -18,7 +18,7 @@ Component<IData, {}, {}>({
       const name: TabNameEnum = event.detail
       this.setData({ active: name })
 
-      const tab = this.data.list.find(item => item.name === name)
+      const tab = this.data.list.find((item: { name: TabNameEnum }) => item.name === name)
       if (!tab)
         return
 
@@ -30,7 +30,7 @@ Component<IData, {}, {}>({
       const page = getCurrentPages().pop()
       const route = page ? page.route.split('?')[0] : ''
       const tab = this.data.list.find(
-        item =>
+        (item: { pagePath: string }) =>
           (item.pagePath.startsWith('/') ? item.pagePath.substr(1) : item.pagePath)
           === `${route}`,
       )
