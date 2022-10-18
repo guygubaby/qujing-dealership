@@ -1,6 +1,5 @@
 import { onPageScroll } from '../../utils/page-scroll'
-
-let uid = 0
+import { genId } from '../../utils/gen-id'
 
 Page({
   data: {
@@ -10,17 +9,17 @@ Page({
 
     swiperList: [
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
       },
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
       },
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
       },
@@ -67,42 +66,42 @@ Page({
 
     timeLimitedCarList: [
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
         title: '宝马3系',
         price: '17.68万',
         oldPrice: '17.98万',
       },
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
         title: '别克君威',
         price: '13.31万',
         oldPrice: '14.36万',
       },
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
         title: '凯迪拉库XT5',
         price: '13.31万',
         oldPrice: '14.36万',
       },
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
         title: '宝马3系',
         price: '17.68万',
         oldPrice: '17.98万',
       },
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
         title: '别克君威',
         price: '13.31万',
         oldPrice: '14.36万',
       },
       {
-        id: ++uid,
+        id: genId(),
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
         title: '凯迪拉库XT5',
         price: '13.31万',

@@ -1,6 +1,5 @@
+import { genId } from '../../utils/gen-id'
 import { onPageScroll } from '../../utils/page-scroll'
-
-let uid = 0
 
 Page({
 
@@ -10,17 +9,17 @@ Page({
   data: {
     swiperList: [
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
       },
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
       },
       {
-        id: ++uid,
+        id: genId(),
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
       },
