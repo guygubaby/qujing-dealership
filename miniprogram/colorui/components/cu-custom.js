@@ -1,4 +1,5 @@
 const app = getApp()
+
 Component({
   /**
    * 组件的一些选项

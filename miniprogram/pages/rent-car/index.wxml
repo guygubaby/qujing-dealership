@@ -1,3 +1,1 @@
-<scroller bind:onRefresh='onRefresh'>
-	<view class="w-full h-100vh">content</view>
-</scroller>
+<view class="w-full h-100vh">content</view>

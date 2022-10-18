@@ -3,6 +3,47 @@
 // @import './colorui/animation.scss';
 // @import './colorui/icon.scss';
 
+.screen-swiper {
+	min-height: 400rpx;
+}
+
+.screen-swiper image,
+.screen-swiper video,
+.swiper-item image,
+.swiper-item video {
+	width: 100%;
+	display: block;
+	height: 100%;
+	margin: 0;
+	pointer-events: none;
+}
+
+swiper.round-dot .wx-swiper-dot {
+	width: 10rpx;
+	height: 10rpx;
+	position: relative;
+	margin: 4rpx 8rpx !important;
+}
+
+swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active::after {
+	content: "";
+	position: absolute;
+	width: 10rpx;
+	height: 10rpx;
+	top: 0rpx;
+	left: 0rpx;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #fff;
+	border-radius: 20rpx;
+}
+
+swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
+	width: 18rpx;
+	height: 18rpx;
+}
+
 view,
 scroll-view,
 swiper,

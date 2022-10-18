@@ -9,12 +9,10 @@
   bindrefresherrefresh="onRefresh"
   bindrefresherrestore="onRestore"
   bindrefresherabort="onAbort"
-	style="width: 100%"
+	style="width: 100%; height: {{scrollerHeight}};"
 >
 	<view slot="refresher" class="refresher {{forNav?'refresher-nav':''}}" style="height: {{finalThreshold}}px;">
-		<!-- <slot name='loading'> -->
-			<van-loading />
-		<!-- </slot> -->
+		<van-loading type="spinner" />
   </view>
   <slot />
 </scroll-view>

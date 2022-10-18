@@ -20,8 +20,8 @@ App<IAppOption>({
     wx.getSystemInfo({
       success: (e) => {
         this.globalData.StatusBar = e.statusBarHeight
-        const capsule = wx.getMenuButtonBoundingClientRect()
-
+				const capsule = wx.getMenuButtonBoundingClientRect()
+				
         const statusBarHeight = e.statusBarHeight
         const navTop = capsule.top
         const navHeight = statusBarHeight + capsule.height + (capsule.top - statusBarHeight) * 2// 导航高度
@@ -41,6 +41,6 @@ App<IAppOption>({
     })
   },
   onShow() {
-    updateManager()
-  },
+		updateManager()
+	},
 })

@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-loading": "@vant/weapp/loading/index"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true
 }

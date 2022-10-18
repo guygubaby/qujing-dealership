@@ -1,3 +1,5 @@
+import { ensureSuffix } from "@bryce-loskie/utils"
+
 const app = getApp()
 
 export { }
@@ -34,6 +36,13 @@ Component({
 			type: String,
 			value: 'black'
 		},
+		height: {
+			type: String,
+			value: '',
+			observer() {
+				this.init()
+			}
+		}
   },
 
   /**
@@ -42,24 +51,36 @@ Component({
   data: {
 		triggered: false,
 		finalThreshold: 60,
+		scrollerHeight: '0px',
 	},
 
 	lifetimes: {
 		attached(){
-			const navHeight = app.globalData.navHeight || 84
-			const threshold = this.properties.threshold
-			const forNav = this.properties.forNav
-			const finalThreshold =  forNav ? navHeight : threshold
-			this.setData({
-				finalThreshold,
-			})
-		}
+			this.init()
+		},
 	},
 	
   /**
    * Component methods
    */
   methods: {	
+		init() {
+			const { navHeight = 84, windowHeight = 812 } = app.globalData
+
+			const threshold = this.properties.threshold
+			const forNav = this.properties.forNav
+			const height = this.properties.height
+
+			const finalThreshold =  forNav ? navHeight : threshold
+
+			const scrollerHeight = height || windowHeight + ''
+
+			this.setData({
+				finalThreshold,
+				scrollerHeight: ensureSuffix(scrollerHeight, 'px'),
+			})
+		},
+
 		onRefresh() {
 			this.setData({
 				triggered: true,

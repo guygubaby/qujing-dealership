@@ -1,27 +1,26 @@
 import { onPageScroll } from '../../utils/page-scroll'
 
-const app = getApp()
+let uid = 0
 
 Page({
   data: {
-    navHeight: app.globalData.navHeight,
     navOpacity: 0,
 
-    isLoading: false,
+    isRefreshing: false,
 
     swiperList: [
       {
-        id: 0,
+        id: ++uid,
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
       },
       {
-        id: 1,
+        id: ++uid,
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
       },
       {
-        id: 2,
+        id: ++uid,
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
       },
@@ -68,33 +67,48 @@ Page({
 
     timeLimitedCarList: [
       {
-        id: 0,
+        id: ++uid,
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
         title: '宝马3系',
         price: '17.68万',
         oldPrice: '17.98万',
       },
       {
-        id: 1,
+        id: ++uid,
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
         title: '别克君威',
         price: '13.31万',
         oldPrice: '14.36万',
       },
       {
-        id: 2,
+        id: ++uid,
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+        title: '凯迪拉库XT5',
+        price: '13.31万',
+        oldPrice: '14.36万',
+      },
+      {
+        id: ++uid,
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg',
+        title: '宝马3系',
+        price: '17.68万',
+        oldPrice: '17.98万',
+      },
+      {
+        id: ++uid,
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+        title: '别克君威',
+        price: '13.31万',
+        oldPrice: '14.36万',
+      },
+      {
+        id: ++uid,
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
         title: '凯迪拉库XT5',
         price: '13.31万',
         oldPrice: '14.36万',
       },
     ],
-  },
-
-  handleOnRefresh(e: IScrollerOnRefreshEvent) {
-    setTimeout(() => {
-      e.detail.stopRefresh()
-    }, 2 * 1000)
   },
 
   /**
@@ -125,6 +139,22 @@ Page({
   onUnload() {},
 
   onPageScroll,
+
+  onPullDownRefresh() {
+    if (this.data.isRefreshing)
+      return
+
+    this.setData({
+      isRefreshing: true,
+    })
+
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+      this.setData({
+        isRefreshing: false,
+      })
+    }, 2 * 1000)
+  },
 
   /**
    * Called when page reach bottom

@@ -1,2 +1,47 @@
-<!--pages/car-detail/index.wxml-->
-<text>pages/car-detail/index.wxml</text>
+<van-nav-bar
+  fixed
+  border="{{ true }}"
+  left-text="返回"
+  left-arrow
+	bind:click-left='handleBack'
+>
+  <view slot="title">
+		<view class="flex-center">
+			<van-loading size='16px' class="flex-center mt-4" wx:if="{{isRefreshing}}" />
+			<text wx:else>详情</text>
+		</view>
+	</view>
+</van-nav-bar>
+
+<nav-placeholder />
+
+<swiper
+  class="screen-swiper round-dot w-full h-700rpx"
+  indicator-dots="true"
+  circular="true"
+  autoplay="true"
+  interval="5000"
+  duration="500"
+>
+  <swiper-item wx:for="{{ swiperList }}" wx:key="id">
+    <image
+      src="{{ item.url }}"
+      mode="aspectFill"
+      wx:if="{{ item.type == 'image' }}"
+    ></image>
+    <video
+      src="{{ item.url }}"
+      autoplay
+      loop
+      muted
+      show-play-btn="{{ false }}"
+      controls="{{ false }}"
+      objectFit="cover"
+      wx:if="{{ item.type == 'video' }}"
+    ></video>
+  </swiper-item>
+</swiper>
+
+<view class="h-100vh"> asdf </view>
+
+<safe-area />

@@ -1,4 +1,4 @@
-<van-tabbar active="{{ active }}" bind:change="onChange">
+<van-tabbar active="{{ active }}" bind:change="onChange" id='van-tabbar'>
   <van-tabbar-item 
     wx:for="{{list}}" 
     wx:for-item="item"
