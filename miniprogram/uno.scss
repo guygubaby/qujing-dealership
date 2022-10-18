@@ -10,8 +10,6 @@ page,::before,::after{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-
 /* layer: default */
 .p-2{padding:16rpx;}
 .px-2{padding-left:16rpx;padding-right:16rpx;}
-.pb-4{padding-bottom:32rpx;}
-.pt-2{padding-top:16rpx;}
 .m-1{margin:8rpx;}
 .m-2{margin:16rpx;}
 .mb-1{margin-bottom:8rpx;}
@@ -36,6 +34,8 @@ page,::before,::after{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-
 .grid{display:grid;}
 .gap-2{grid-gap:16rpx;gap:16rpx;}
 .fixed{position:fixed;}
+.h-100vh{height:100vh;}
+.w-full{width:100%;}
 .overflow-hidden{overflow:hidden;}
 .h-8{height:64rpx;}
 .w-8{width:64rpx;}

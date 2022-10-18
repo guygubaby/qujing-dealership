@@ -19,7 +19,7 @@ const shorttenPath = (path: string) => {
 }
 
 const ctx: Context = {
-  patterns: 'miniprogram/pages/**/*.wxml',
+  patterns: ['miniprogram/pages/**/*.wxml','miniprogram/components/**/*.wxml'],
   avaliableComponents: [],
   componentMap: {},
 }

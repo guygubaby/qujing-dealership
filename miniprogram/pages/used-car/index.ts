@@ -91,6 +91,12 @@ Page({
     ],
   },
 
+  handleOnRefresh(e: IScrollerOnRefreshEvent) {
+    setTimeout(() => {
+      e.detail.stopRefresh()
+    }, 2 * 1000)
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
@@ -117,21 +123,6 @@ Page({
    * Lifecycle function--Called when page unload
    */
   onUnload() {},
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh() {
-    this.setData({
-      isLoading: true,
-    })
-    setTimeout(() => {
-      this.setData({
-        isLoading: false,
-      })
-      wx.stopPullDownRefresh()
-    }, 1 * 1000)
-  },
 
   onPageScroll,
 

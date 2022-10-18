@@ -1,2 +1,3 @@
-<!--pages/rent-car/index.wxml-->
-<text>pages/rent-car/index.wxml</text>
+<scroller bind:onRefresh='onRefresh'>
+	<view class="w-full h-100vh">content</view>
+</scroller>

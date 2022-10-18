@@ -63,4 +63,12 @@ Page({
   onShareAppMessage() {
 
   },
+
+  onRefresh(e: IScrollerOnRefreshEvent) {
+    const stopRefresh = e.detail.stopRefresh
+
+    setTimeout(() => {
+      stopRefresh()
+    }, 2 * 1000)
+  },
 })

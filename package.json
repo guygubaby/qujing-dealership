@@ -10,8 +10,8 @@
   "scripts": {
     "lint": "eslint .",
     "dev:auto-import-vant": "esno ./scripts/auto-import-vant/index.ts",
-    "dev:unocss": "unocss './miniprogram/pages/**/*.wxml' -w -o './miniprogram/uno.scss'",
-    "build:unocss": "unocss './miniprogram/pages/**/*.wxml' -o './miniprogram/uno.scss'",
+    "dev:unocss": "unocss ./miniprogram/pages/**/*.wxml -w -o './miniprogram/uno.scss'",
+    "build:unocss": "unocss ./miniprogram/pages/**/*.wxml -o './miniprogram/uno.scss'",
     "dev": "pnpm run dev:auto-import-vant & pnpm run dev:unocss"
   },
   "dependencies": {

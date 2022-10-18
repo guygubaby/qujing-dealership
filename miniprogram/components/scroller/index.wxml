@@ -1,0 +1,20 @@
+<scroll-view
+	scroll-y
+  refresher-enabled="{{enabled}}"
+  refresher-threshold="{{finalThreshold}}"
+  refresher-default-style="none"
+  refresher-background="{{background}}"
+  refresher-triggered="{{triggered}}"
+	enable-back-to-top='{{backToTop}}'
+  bindrefresherrefresh="onRefresh"
+  bindrefresherrestore="onRestore"
+  bindrefresherabort="onAbort"
+	style="width: 100%"
+>
+	<view slot="refresher" class="refresher {{forNav?'refresher-nav':''}}" style="height: {{finalThreshold}}px;">
+		<!-- <slot name='loading'> -->
+			<van-loading />
+		<!-- </slot> -->
+  </view>
+  <slot />
+</scroll-view>
