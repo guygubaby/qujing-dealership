@@ -26,19 +26,19 @@ Page({
       },
     ],
 
-		navOpacity: 0,
+    navOpacity: 0,
     isRefreshing: false,
-	},
-	
-	handleBack(){
-		wx.navigateBack({
-			delta: 1,
-		})
-	},
+  },
 
-	onPageScroll,
-	
-	onPullDownRefresh() {
+  handleBack() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+
+  onPageScroll,
+
+  onPullDownRefresh() {
     if (this.data.isRefreshing)
       return
 
