@@ -38,12 +38,12 @@
 	</view>
 
 	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="text-xl mr-1 text-purple i-fxemoji-moneybag"></view>
+		<view class="text-xl mr-1 i-fxemoji-moneybag"></view>
 		<text>百亿补贴</text>
 	</van-divider>
 
 	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="text-xl mr-1 text-purple i-fxemoji-squarednew"></view>
+		<view class="text-xl mr-1 i-fxemoji-squarednew"></view>
 		<text>每日上新</text>
 	</van-divider>
 
