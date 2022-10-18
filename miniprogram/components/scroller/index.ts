@@ -1,3 +1,7 @@
+const app = getApp()
+
+export { }
+
 Component({
 	options: {
 		multipleSlots: true,
@@ -42,9 +46,10 @@ Component({
 
 	lifetimes: {
 		attached(){
+			const navHeight = app.globalData.navHeight || 84
 			const threshold = this.properties.threshold
 			const forNav = this.properties.forNav
-			const finalThreshold =  forNav ? threshold + 20 : threshold
+			const finalThreshold =  forNav ? navHeight : threshold
 			this.setData({
 				finalThreshold,
 			})

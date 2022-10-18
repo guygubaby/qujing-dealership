@@ -1,6 +1,6 @@
 import { throttle } from '@bryce-loskie/utils'
 
-export const onPageScroll = throttle(16, function ({ scrollTop }: { scrollTop: number }) {
+export const onPageScroll = throttle(16.7, function ({ scrollTop }: { scrollTop: number }) {
   // @ts-expect-error ignore this
   const delta = scrollTop / this.data.navHeight
   const opacity = Math.min(delta, 1)
