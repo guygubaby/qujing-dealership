@@ -64,6 +64,41 @@ Page({
       },
     ],
 
+    brandList: [
+      {
+        id: genId(),
+        name: '长安',
+      },
+      {
+        id: genId(),
+        name: '荣威',
+      },
+      {
+        id: genId(),
+        name: '奔驰',
+      },
+      {
+        id: genId(),
+        name: '宝马',
+      },
+      {
+        id: genId(),
+        name: '奥迪',
+      },
+      {
+        id: genId(),
+        name: '本田',
+      },
+      {
+        id: genId(),
+        name: '丰田',
+      },
+      {
+        id: genId(),
+        name: '大众',
+      },
+    ],
+
     timeLimitedCarList: [
       {
         id: genId(),

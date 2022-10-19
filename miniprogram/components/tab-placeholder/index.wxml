@@ -1,1 +1,1 @@
-<view style="height: calc(env(safe-area-inset-bottom) + 96rpx)"></view>
+<view style="height: 96rpx"></view>

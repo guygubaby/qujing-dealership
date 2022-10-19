@@ -44,4 +44,4 @@
 
 <view class="h-100vh"> asdf </view>
 
-<safe-area />
+<view class="pb-safe" />

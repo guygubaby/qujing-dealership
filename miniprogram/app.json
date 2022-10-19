@@ -47,7 +47,6 @@
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
     "nav-placeholder": "/components/nav-placeholder/index",
-    "safe-area": "/components/safe-area/index",
     "tab-placeholder": "/components/tab-placeholder/index"
   }
 }
