@@ -2,8 +2,9 @@ import { resolve } from 'path'
 import { Parser } from 'htmlparser2'
 import { readFile, readdir, writeFile } from 'fs-extra'
 import type MagicString from 'magic-string'
-import { dim, red } from 'colorette'
+import { cyan, dim, green, red } from 'colorette'
 import type { SourceCodeTransformer } from 'unocss'
+import { debounce } from 'perfect-debounce'
 
 // TODO: remove `htmlparser2`, use `magic-string` to find vant components instead
 
@@ -11,6 +12,7 @@ interface Context {
   ready: boolean
   avaliableComponents: string[]
   parsedFiles: Set<string>
+  cache: WeakMap<MagicString, string[]>
   componentMap: Record<string, string[]>
 }
 
@@ -31,10 +33,11 @@ const ctx: Context = {
   ready: false,
   avaliableComponents: [],
   parsedFiles: new Set(),
+  cache: new WeakMap(),
   componentMap: {},
 }
 
-export const preflight = async () => {
+const preflight = async () => {
   if (ctx.ready)
     return
 
@@ -46,7 +49,12 @@ export const preflight = async () => {
   ctx.ready = true
 }
 
+const debouncedPreflight = debounce(preflight, 120)
+
 const getVantComponentsFromRawCode = (code: MagicString, id: string) => {
+  if (ctx.cache.has(code))
+    return ctx.cache.get(code)!
+
   const components: string[] = []
 
   if (!ctx.avaliableComponents.length) {
@@ -79,6 +87,8 @@ const getVantComponentsFromRawCode = (code: MagicString, id: string) => {
   parser.write(code.toString())
   parser.end()
 
+  ctx.cache.set(code, components)
+
   return components
 }
 
@@ -110,6 +120,8 @@ const processWxml = async (code: MagicString, id: string) => {
   if (ctx.parsedFiles.has(id) && !code.hasChanged())
     return
 
+  const start = Date.now()
+
   ctx.parsedFiles.add(id)
 
   const components = getVantComponentsFromRawCode(code, id)
@@ -123,11 +135,16 @@ const processWxml = async (code: MagicString, id: string) => {
 
   try {
     await writeJson(id, components)
+    const timeElapsed = Date.now() - start
+
+    console.log(`vant-auto-import: ${cyan(shorttenPath(id))} processed in ${green(`${timeElapsed}ms`)}`)
   }
   catch (error) {
     console.log(red('write json failed'))
   }
 }
+
+const debouncedProcessWxml = debounce(processWxml, 120)
 
 export const autoImportVantTransformer = (): SourceCodeTransformer => {
   return {
@@ -135,8 +152,8 @@ export const autoImportVantTransformer = (): SourceCodeTransformer => {
     enforce: 'pre',
     idFilter: id => id.endsWith('.wxml'),
     async transform(code, id) {
-      await preflight()
-      await processWxml(code, id)
+      await debouncedPreflight()
+      await debouncedProcessWxml(code, id)
     },
   }
 }
