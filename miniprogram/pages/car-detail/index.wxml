@@ -16,7 +16,7 @@
 <nav-placeholder />
 
 <swiper
-  class="screen-swiper round-dot w-full h-700rpx"
+  class="screen-swiper round-dot w-full h-760rpx"
   indicator-dots="true"
   circular="true"
   autoplay="true"

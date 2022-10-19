@@ -16,7 +16,7 @@
 		<view class="text-xl mt-6 mb-2 pl-2 text-slate-800">热门车型</view>
 
 		<view class="my-2 p-2 rounded-lg overflow-hidden bg-white">
-			<view class="grid grid-col-3">
+			<view class="grid grid-cols-3">
 				<view class="m-1 p-2 ring flex-center flex-col" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
 					<view class="w-8 h-8 ring mb-1 flex-center">icon</view>
 					<text class="text-zinc-500">{{item.name}}</text>
@@ -26,7 +26,7 @@
 
 		<view class="text-xl mt-6 mb-2 pl-2 text-slate-800">热门品牌</view>
 
-		<view class="w-full h-auto gap-2 flex overflow-x-auto snap-x px-2">
+		<view class="w-full h-auto gap-2 flex overflow-x-auto snap-x snap-mandatory	px-2">
 			<view class="p-2 rounded-lg bg-white w-80-p- flex-none snap-center last-of-type-c-mr-2" wx:for="{{brandList}}" wx:key='id' wx:if="{{index<6}}">
 				<view class="w-full h-30 ring mb-2 flex-center">icon</view>
 				<text class="text-zinc-500">{{item.name}}</text>
@@ -38,7 +38,7 @@
 			<text>超级闪购</text>
 		</van-divider>
 
-		<view class="grid grid-col-2 gap-2">
+		<view class="grid grid-cols-2 gap-2">
 			<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
 				<image src="{{item.url}}" mode="aspectFill"></image>
 				<figurecaption class="p-2 flex flex-col">
@@ -56,7 +56,7 @@
 			<text>限时秒杀</text>
 		</van-divider>
 
-		<view class="grid grid-col-2 gap-2">
+		<view class="grid grid-cols-2 gap-2">
 			<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
 				<image src="{{item.url}}" mode="aspectFill"></image>
 				<figurecaption class="p-2 flex flex-col">
