@@ -1,6 +1,7 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss'
 import { presetWeapp } from 'unocss-preset-weapp'
 import { transformerClass } from 'unocss-preset-weapp/transformer'
+import { autoImportVantTransformer } from './vant-auto-import'
 
 const weappPreset = presetWeapp({
   dark: 'class',
@@ -14,6 +15,7 @@ export default defineConfig(
     shortcuts: {
       'flex-center': 'flex justify-center items-center',
     },
+
     presets: [
       weappPreset,
 
@@ -46,6 +48,8 @@ export default defineConfig(
     ],
 
     transformers: [
+      autoImportVantTransformer(),
+
       transformerClass({
         include,
         transformRules: {
