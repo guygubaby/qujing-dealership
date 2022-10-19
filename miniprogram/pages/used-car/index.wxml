@@ -12,67 +12,73 @@
 		</swiper-item>
 	</swiper>
 
-	<view class="m-2 p-2 rounded-lg overflow-hidden bg-white">
-		<view class="grid grid-col-3">
-			<view class="m-1 p-2 ring flex-center flex-col" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
-				<view class="w-8 h-8 ring mb-1 flex-center">icon</view>
+	<view class="px-2 w-full">
+		<view class="text-xl mt-6 mb-2 pl-2 text-slate-800">热门车型</view>
+
+		<view class="my-2 p-2 rounded-lg overflow-hidden bg-white">
+			<view class="grid grid-col-3">
+				<view class="m-1 p-2 ring flex-center flex-col" wx:for="{{iconList}}" wx:key='id' wx:if="{{index<6}}">
+					<view class="w-8 h-8 ring mb-1 flex-center">icon</view>
+					<text class="text-zinc-500">{{item.name}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="text-xl mt-6 mb-2 pl-2 text-slate-800">热门品牌</view>
+
+		<view class="w-full h-auto gap-2 flex overflow-x-auto snap-x px-2">
+			<view class="p-2 rounded-lg bg-white w-80-p- flex-none snap-center last-of-type-c-mr-2" wx:for="{{brandList}}" wx:key='id' wx:if="{{index<6}}">
+				<view class="w-full h-30 ring mb-2 flex-center">icon</view>
 				<text class="text-zinc-500">{{item.name}}</text>
 			</view>
 		</view>
-	</view>
 
-	<view class="w-full h-auto gap-2 flex overflow-x-auto my-2 px-2 snap-x">
-		<view class="p-2 rounded-lg bg-white w-80-p- flex-none snap-center last-of-type-c-mr-2" wx:for="{{brandList}}" wx:key='id' wx:if="{{index<6}}">
-			<view class="w-30 h-30 ring mb-2 flex-center">icon</view>
-			<text class="text-zinc-500">{{item.name}}</text>
+		<van-divider borderColor="#DFD3C3" contentPosition="center">
+			<view class="i-fxemoji-lightningmood text-2xl text-red mr-1"></view>
+			<text>超级闪购</text>
+		</van-divider>
+
+		<view class="grid grid-col-2 gap-2">
+			<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
+				<image src="{{item.url}}" mode="aspectFill"></image>
+				<figurecaption class="p-2 flex flex-col">
+					<text class="text-slate-800 text-md">{{item.title}}</text>
+					<view>
+						<text class="text-red-600">{{item.price}}</text>
+						<text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
+					</view>
+				</figurecaption>
+			</view>
 		</view>
-	</view>
 
-	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="i-fxemoji-lightningmood text-2xl text-red mr-1"></view>
-		<text>超级闪购</text>
-	</van-divider>
+		<van-divider borderColor="#DFD3C3" contentPosition="center">
+			<view class="i-fxemoji-fire text-2xl text-red mr-1"></view>
+			<text>限时秒杀</text>
+		</van-divider>
 
-	<view class="grid grid-col-2 gap-2 px-2">
-		<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
-			<image src="{{item.url}}" mode="aspectFill"></image>
-			<figurecaption class="p-2 flex flex-col">
-				<text class="text-slate-800 text-md">{{item.title}}</text>
-				<view>
-					<text class="text-red-600">{{item.price}}</text>
-					<text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
-				</view>
-			</figurecaption>
+		<view class="grid grid-col-2 gap-2">
+			<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
+				<image src="{{item.url}}" mode="aspectFill"></image>
+				<figurecaption class="p-2 flex flex-col">
+					<text class="text-slate-800 text-md">{{item.title}}</text>
+					<view>
+						<text class="text-red-600">{{item.price}}</text>
+						<text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
+					</view>
+				</figurecaption>
+			</view>
 		</view>
+
+		<van-divider borderColor="#DFD3C3" contentPosition="center">
+			<view class="text-2xl mr-1 i-fxemoji-moneybag"></view>
+			<text>百亿补贴</text>
+		</van-divider>
+
+		<van-divider borderColor="#DFD3C3" contentPosition="center">
+			<view class="text-2xl mr-1 i-fxemoji-squarednew"></view>
+			<text>每日上新</text>
+		</van-divider>
+
+		<tab-placeholder />
 	</view>
-
-	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="i-fxemoji-fire text-2xl text-red mr-1"></view>
-		<text>限时秒杀</text>
-	</van-divider>
-
-	<view class="grid grid-col-2 gap-2 px-2">
-		<view bindtap="handleClickItem" class="rounded-lg bg-white overflow-hidden flex flex-col" wx:for="{{timeLimitedCarList}}" wx:key='id' data-id="{{item.id}}">
-			<image src="{{item.url}}" mode="aspectFill"></image>
-			<figurecaption class="p-2 flex flex-col">
-				<text class="text-slate-800 text-md">{{item.title}}</text>
-				<view>
-					<text class="text-red-600">{{item.price}}</text>
-					<text class="text-zinc-400 line-through ml-1">{{item.oldPrice}}</text>
-				</view>
-			</figurecaption>
-		</view>
-	</view>
-
-	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="text-2xl mr-1 i-fxemoji-moneybag"></view>
-		<text>百亿补贴</text>
-	</van-divider>
-
-	<van-divider borderColor="#DFD3C3" contentPosition="center">
-		<view class="text-2xl mr-1 i-fxemoji-squarednew"></view>
-		<text>每日上新</text>
-	</van-divider>
-
-	<tab-placeholder />
 </view>
